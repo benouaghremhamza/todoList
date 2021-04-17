@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { ThemeProvider } from './theme';
+import ThemeProvider from './theme';
+import Routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
