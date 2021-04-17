@@ -4,9 +4,7 @@ import withStyle from './withStyle';
 const Footer = ({ className }) => {
   return (
     <div className={className}>
-      <h6 className="test">
-        © {new Date().getFullYear()} MyWebsite Inc™. ALL RIGHTS RESERVED.
-      </h6>
+      <h6>© {new Date().getFullYear()} TodoList.</h6>
     </div>
   );
 };

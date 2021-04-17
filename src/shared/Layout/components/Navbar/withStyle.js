@@ -1,7 +1,25 @@
 import styled from 'styled-components';
+import themeGet from '@styled-system/theme-get';
 
 export default (component) => styled(component)`
-  position: relative;
-  width: 100%;
-  border: 1px solid red;
+  box-shadow: rgb(0 0 0 / 20%) 0 2px 5px 0;
+  display: flex;
+  flex-direction: row;
+  height: 6vh;
+  padding: 0 2rem;
+  align-items: center;
+
+  .nav-item {
+    text-decoration: none;
+    font-size: ${themeGet('sizes.sm')};
+    font-weight: 400;
+    color: ${themeGet('colors.gray')};
+    margin-right: 1.5rem;
+  }
+
+  .btn {
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+  }
 `;

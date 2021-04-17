@@ -1,5 +1,5 @@
-import { CLEAR_TODOS } from './constants';
+import { CLEAR_TODO } from './constants';
 
-const clear = () => ({ type: CLEAR_TODOS });
+const clear = (id) => ({ type: CLEAR_TODO, payload: id });
 
 export default clear;

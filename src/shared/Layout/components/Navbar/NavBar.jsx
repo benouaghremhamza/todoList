@@ -11,12 +11,20 @@ const NavBar = ({ className }) => {
   }, []);
 
   return (
-    <div className={className}>
-      <h6>Hello</h6>
-      <button type="button" onClick={logoutUser}>
-        Logout
+    <nav className={className}>
+      <a className="nav-item" href="/">
+        Todo List
+      </a>
+      <a className="nav-item" href="/">
+        Home
+      </a>
+      <a className="nav-item" href="/">
+        Tâches
+      </a>
+      <button type="button" className="nav-item btn" onClick={logoutUser}>
+        Déconnexion
       </button>
-    </div>
+    </nav>
   );
 };
 

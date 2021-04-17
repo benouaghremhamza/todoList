@@ -1,34 +1,17 @@
-import React, { useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getTodos } from '../../redux/todo/selectors';
-import { add, clear } from '../../redux/todo/actions';
+import React from 'react';
+import withStyle from './withStyle';
+import CreateTask from './components/CreateTask/CreateTask';
+import Tasks from './components/Tasks/Tasks';
 
-const Dashboard = () => {
-  const data = useSelector(getTodos);
-  const dispatch = useDispatch();
-  console.log(data);
-
-  const addTodo = useCallback(() => {
-    dispatch(add({ title: 'zz', content: 'rrr' }));
-  }, []);
-
-  const clearTodo = useCallback(() => {
-    dispatch(clear());
-  }, []);
-
+const Dashboard = ({ className }) => {
   return (
-    <div>
-      <div>
-        Dashboard
-        <button type="button" onClick={addTodo}>
-          ADD
-        </button>
-        <button type="button" onClick={clearTodo}>
-          Clear
-        </button>
-      </div>
+    <div className={className}>
+      <h1> Liste des tâches </h1>
+      <Tasks />
+      <h1> Créer une nouvelle tâche </h1>
+      <CreateTask />
     </div>
   );
 };
 
-export default Dashboard;
+export default withStyle(Dashboard);

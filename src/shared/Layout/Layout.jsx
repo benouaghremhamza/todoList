@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './components/Navbar';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import withStyle from './withStyle';
 
 const Layout = ({ className, children }) => {
   return (
     <div className={className}>
-      <Header />
+      <Navbar />
       <div className="container">{children}</div>
       <Footer />
     </div>
