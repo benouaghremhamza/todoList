@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import withStyle from './withStyle';
 import Button from '../../../../../../components/atoms/Button';
 
@@ -10,13 +10,13 @@ const statuses = {
 const Task = ({ className, task, clearTask, toggleTaskStatus }) => {
   const [isBeingDeleted, setIsBeingDeleted] = useState(false);
 
-  const deleteTaskWithAnimation = useCallback(() => {
+  const deleteTaskWithAnimation = () => {
     setIsBeingDeleted(true);
     setTimeout(() => {
       clearTask(task.id);
       setIsBeingDeleted(false);
     }, 300);
-  }, []);
+  };
 
   return (
     <div className={className}>
