@@ -24,6 +24,16 @@ Install node modules: `npm install`
 
 `https://hub.docker.com/repository/docker/testoftodolist/todo-list1`
 
+## 1.3 Features
+
+This template provide :
+
+ESLint AirBnB/Prettier configuration
+Prettier configuration
+Pre-commit prettifying
+Pre-commit linting check
+Pull request linting check (thanks to Github Action)
+
 ## 2.1 Project architecture
 
 ```
