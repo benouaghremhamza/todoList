@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import useCreateTask from './useCreateTask';
+import InputField from '../../../../components/atoms/InputField';
+import withStyle from './withStyle';
+import Button from '../../../../components/atoms/Button';
 
-const CreateTask = () => {
+const CreateTask = ({ className }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const { createTask } = useCreateTask();
@@ -14,32 +17,45 @@ const CreateTask = () => {
   };
 
   return (
-    <section>
+    <section className={className}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
+        <div className="form-inputs">
+          <label htmlFor="title">
+            Title:
+            <InputField
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="title"
+            />
+          </label>
 
-        <label htmlFor="content">
-          Content:
-          <input
-            type="text"
-            name="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </label>
+          <label htmlFor="content">
+            Content:
+            <InputField
+              type="text"
+              name="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="content"
+            />
+          </label>
+        </div>
 
-        <button type="submit">Create</button>
+        <Button
+          type="submit"
+          skin="fill"
+          color="blue"
+          borderRadius="0.5rem"
+          padding="1rem 4rem"
+          withAnimation
+        >
+          Create
+        </Button>
       </form>
     </section>
   );
 };
 
-export default CreateTask;
+export default withStyle(CreateTask);

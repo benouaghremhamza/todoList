@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import themeGet from '@styled-system/theme-get';
 
 export default (component) => styled(component)`
-  box-shadow: rgb(0 0 0 / 20%) 0 2px 5px 0;
+  box-shadow: rgb(0 0 0 / 20%) 0 0.2rem 0.5rem 0;
   display: flex;
   flex-direction: row;
   height: 6vh;

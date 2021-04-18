@@ -3,7 +3,6 @@ import themeGet from '@styled-system/theme-get';
 
 export default (component) => styled(component)`
   .task {
-    width: 90%;
     border: solid 0.1rem ${themeGet('colors.lightGray')};
     border-radius: 0.5rem;
     padding: 0.5rem 2rem;
@@ -12,21 +11,34 @@ export default (component) => styled(component)`
     align-items: center;
     animation: appear 0.5s ease-in-out;
     margin-bottom: 0.5rem;
+    width: 100%;
+    outline: none;
 
     &--item {
       margin-right: 2rem;
       font-size: ${themeGet('sizes.sm')};
       text-transform: capitalize;
+      transition: all 0.4s;
 
       &--title {
         font-weight: 700;
       }
 
-      &--delete-btn {
-        margin-right: auto;
-        background-color: transparent;
-        border: none;
-        color: ${themeGet('colors.blue')};
+      &--title,
+      &--content {
+        text-decoration: ${({ task: { state } }) =>
+          state === 'pending' ? 'none' : 'line-through'};
+      }
+
+      &--status {
+        margin-left: auto;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        color: ${themeGet('colors.white')};
+        background-color: ${({ task: { state } }) =>
+          state === 'pending'
+            ? themeGet('colors.red')
+            : themeGet('colors.green')};
       }
     }
 

@@ -1,7 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import withStyle from './withStyle';
+import Button from '../../../../../../components/atoms/Button';
 
-const Task = ({ className, task, clearTask }) => {
+const statuses = {
+  pending: 'Non terminée',
+  completed: 'Complétée',
+};
+
+const Task = ({ className, task, clearTask, toggleTaskStatus }) => {
   const [isBeingDeleted, setIsBeingDeleted] = useState(false);
 
   const deleteTaskWithAnimation = useCallback(() => {
@@ -14,18 +20,30 @@ const Task = ({ className, task, clearTask }) => {
 
   return (
     <div className={className}>
-      <div className={`task ${isBeingDeleted && 'task--deleted'}`}>
+      <button
+        type="button"
+        className={`task ${isBeingDeleted && 'task--deleted'} 
+       `}
+        onClick={() => toggleTaskStatus(task.id)}
+      >
         <span className="task--item task--item--title">{task.title}: </span>
         <span className="task--item task--item--content">{task.content}</span>
-        <span className="task--item">{task.status}</span>
-        <button
+        <Button
           type="button"
-          className="task--item task--item--delete-btn"
-          onClick={deleteTaskWithAnimation}
+          skin="outline"
+          color="blue"
+          onClick={(evt) => {
+            evt.preventDefault();
+            evt.stopPropagation();
+            deleteTaskWithAnimation();
+          }}
         >
           Supprimer
-        </button>
-      </div>
+        </Button>
+        <span className="task--item task--item--status">
+          {statuses[task.state]}
+        </span>
+      </button>
     </div>
   );
 };
